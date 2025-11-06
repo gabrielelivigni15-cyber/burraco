@@ -1,26 +1,19 @@
 # Burraco Tournament (Vercel + Supabase)
 
-**Stack**: Vite + React + TypeScript + shadcn/ui + Supabase (optional)
+**Stack:** Vite + React + TypeScript + Supabase + shadcn/ui  
 
-## Deploy with Vercel + GitHub
-
-1. Push `workspace/shadcn-ui` to a GitHub repo.
-2. Import the repo in Vercel (New Project) and select the folder root.
-3. Set **Build Command**: `pnpm build` (or `npm run build`) and **Output Directory**: `dist`.
-4. Add Environment Variables:
+## 🧩 Deploy rapido
+1. Carica questo progetto su **GitHub**.
+2. Su **Vercel → New Project**:
+   - Root directory: *(vuota)*
+   - Build Command: `pnpm run build`
+   - Output directory: `dist`
+3. In **Environment Variables** aggiungi:
    - `VITE_SUPABASE_URL`
    - `VITE_SUPABASE_ANON_KEY`
-5. Deploy.
+4. Clicca **Deploy** 🎉
 
-## Local dev
-
-```bash
-pnpm i
-pnpm dev
-```
-
-## Supabase schema (SQL)
-
+## 🗄️ Tabelle Supabase (SQL)
 ```sql
 create table if not exists participants (
   id uuid primary key default gen_random_uuid(),
@@ -36,5 +29,3 @@ create table if not exists draws (
   prizeType text not null,
   drawnAt timestamptz default now()
 );
-```
-App falls back to localStorage if env vars are missing.
